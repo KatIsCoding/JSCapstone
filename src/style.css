@@ -2,3 +2,8 @@ body,
 html {
   margin: 0;
 }
+
+#header-icon {
+  width: 45px;
+  height: 30px;
+}
