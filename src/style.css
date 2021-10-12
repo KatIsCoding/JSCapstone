@@ -1,3 +1,11 @@
+:root {
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --instagram-color: #ac2bac;
+  --linkedin-color: #0082ca;
+  --github-color: #333;
+}
+
 body,
 html {
   margin: 0;
@@ -6,4 +14,24 @@ html {
 #header-icon {
   width: 45px;
   height: 30px;
+}
+
+.fb {
+  background-color: var(--facebook-color);
+}
+
+.tw {
+  background-color: var(--twitter-color);
+}
+
+.lk-in {
+  background-color: var(--linkedin-color);
+}
+
+.insta {
+  background-color: var(--instagram-color);
+}
+
+.gh {
+  background-color: var(--github-color);
 }
