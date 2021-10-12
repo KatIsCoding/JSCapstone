@@ -13,7 +13,7 @@
   <header>
         <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
             <div class="container-fluid">
-                <a class="navbar-brand ms-5" href="#"><img id="header-icon" src="https://media.discordapp.net/attachments/637141086334222369/897332773436657684/icon.png" alt=""> Albumist </a>
+                <a class="navbar-brand ms-md-5" href="#"><img id="header-icon" src="https://media.discordapp.net/attachments/637141086334222369/897332773436657684/icon.png" alt=""> Albumist </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,7 +37,7 @@
         </nav>
   </header>
   <main id="main-content">
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-container">
+      <button type="button" class="btn btn-color" data-bs-toggle="modal" data-bs-target="#modal-container">
         See details
       </button>
   </main>
@@ -56,9 +56,13 @@
             <a href="https://open.spotify.com/artist/7jefIIksOi1EazgRTfW2Pk?si=-sL-yWrqQFqQ0c_5LUXOnw&dl_branch=1">Artist Name</a>
             <p class="text-muted">12 oct 2021</p>
           </div>
+          <div id="modal-comments">
+            <input class="mb-2 text-capitalize text-white inputs-user" type="text" name="name" id="name" placeholder="Your name" minlength="3" maxlength="12" required>
+            <textarea class="text-white inputs-user" id="area-comment" name="area-comment" placeholder="Enter your comment here" minlength="3" maxlength="500" required></textarea>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-color" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

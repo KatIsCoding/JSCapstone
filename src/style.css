@@ -42,6 +42,27 @@ html {
   color: #dc3545;
 }
 
+.inputs-user {
+  background: #2c3034;
+  border: none;
+  width: 100%;
+}
+
+.inputs-user::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.inputs-user::-ms-input-placeholder {
+  color: white;
+}
+
+.btn-color {
+  background-color: #dc3545;
+  color: white;
+}
+
+
 .fb {
   background-color: var(--facebook-color);
 }
