@@ -1,9 +1,11 @@
 const changeColorComments = () => {
   const displayInputComments = document.querySelector('#add-comments');
-  if (displayInputComments.style.color === 'rgb(75, 75, 165)') {
-    displayInputComments.style.color = '#6c757d';
+  if (displayInputComments.classList.contains('add-clicked')) {
+    displayInputComments.classList.add('add-no-click');
+    displayInputComments.classList.remove('add-clicked');
   } else {
-    displayInputComments.style.color = '#4b4ba5';
+    displayInputComments.classList.remove('add-no-click');
+    displayInputComments.classList.add('add-clicked');
   }
 };
 

@@ -27,17 +27,24 @@ html {
 
 .info {
   background-color: #181818;
-  color: #6c757d;
   border-radius: 10px;
   font-size: .8rem;
   font-weight: 550;
+}
+
+#likes {
+  color: #6c757d;
 }
 
 #likes:hover {
   color: #dc3545;
 }
 
-#add-comments:hover {
+.add-no-click {
+  color: #6c757d;
+}
+
+.add-clicked, .add-no-click:hover {
   color: #4b4ba5;
 }
 
