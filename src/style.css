@@ -33,11 +33,11 @@ html {
   font-weight: 550;
 }
 
-#likes span:hover {
+#likes:hover {
   color: #dc3545;
 }
 
-#comments span:hover {
+#add-comments:hover {
   color: #4b4ba5;
 }
 
@@ -60,6 +60,12 @@ html {
   background-color: #dc3545;
   color: white;
 }
+
+.btn-color-2 {
+  background-color: #4b4ba5;
+  color: white;
+}
+
 
 
 .fb {

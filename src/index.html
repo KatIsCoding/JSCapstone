@@ -53,9 +53,9 @@
           <div class="d-flex flex-column align-items-center">
             <img id="album-img" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/gold-music-mixtape-album-cover-a-design-template-a84a8218d568ac563d9e99f4356b90e5_screen.jpg?ts=1589012098" alt="Album Image">
               <div class="d-flex">
-                <button id="comments" class="btn info mb-0 mt-2 me-3"> 
+                <button id="add-comments" class="btn info mb-0 mt-2 me-3"> 
                   <span>
-                    Add <i class="p-0 fas fa-comment"></i>
+                    <span>Add</span> <i class="p-0 fas fa-comment"></i>
                   </span>
                 </button>
                 <button id="likes" class="btn info mb-0 mt-2"> 
@@ -67,13 +67,26 @@
             <a href="https://open.spotify.com/artist/7jefIIksOi1EazgRTfW2Pk?si=-sL-yWrqQFqQ0c_5LUXOnw&dl_branch=1">Artist Name</a>
             <p class="text-muted">12 oct 2021</p>
           </div>
-          <div id="modal-comments">
+          <p class="text-white align-self-end mb-0">2 comments</p>
+          <div id="add-comment" class="d-none">
             <input class="mb-2 text-capitalize text-white inputs-user" type="text" name="name" id="name" placeholder="Your name" minlength="3" maxlength="12" required>
             <textarea class="text-white inputs-user" id="area-comment" name="area-comment" placeholder="Enter your comment here" minlength="3" maxlength="500" required></textarea>
+          </div>
+          <div id="show-comments" class="d-none">
+            <ul>
+              <li>
+                <p>Name 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis explicabo nobis, id ea laudantium ad deleniti, velit recusandae necessitatibus, at animi quasi quo exercitationem ullam quae quam ipsum dolores delectus!</p>
+              </li>
+              <li>
+                <p>Name 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis explicabo nobis, id ea laudantium ad deleniti, velit recusandae necessitatibus, at animi quasi quo exercitationem ullam quae quam ipsum dolores delectus!</p>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-color" data-bs-dismiss="modal">Close</button>
+          <button id="show-comments-btn" type="button" class="btn btn-color-2" > <span id="show-word">Show</span>  <span id="hide-word" class="d-none">Hide</span> comments</button>
+          <button id="add-comment-btn" type="button" class="d-none btn btn-color-2" >Add comment</button>
         </div>
       </div>
     </div>
