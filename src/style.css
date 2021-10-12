@@ -21,6 +21,27 @@ html {
   background-color: #181818;
 }
 
+#album-img {
+  width: 15rem;
+}
+
+#likes {
+  background-color: #181818;
+  color: #6c757d;
+  border-radius: 10px;
+  font-size: .8rem;
+  font-weight: 550;
+}
+
+#likes button {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+#likes button:hover {
+  color: #dc3545;
+}
+
 .fb {
   background-color: var(--facebook-color);
 }
@@ -40,3 +61,4 @@ html {
 .gh {
   background-color: var(--github-color);
 }
+

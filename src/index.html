@@ -10,7 +10,7 @@
     <title>Albumist</title>
 </head>
 <body>
-    <header>
+  <header>
         <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
             <div class="container-fluid">
                 <a class="navbar-brand ms-5" href="#"><img id="header-icon" src="https://media.discordapp.net/attachments/637141086334222369/897332773436657684/icon.png" alt=""> Albumist </a>
@@ -35,11 +35,36 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <main class="text-white" id="main-content">
-      <button class="btn btn-danger" type="button"> See Details </button>
-    </main>
-    <footer class="text-center text-lg-start bg-dark text-muted bottom-0">
+  </header>
+  <main id="main-content">
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-container">
+        See details
+      </button>
+  </main>
+
+  <section class="modal fade" id="modal-container" tabindex="-1" aria-labelledby="modalContainer" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-muted">
+        <div class="modal-header">
+          <h2 class="modal-title text-white">Album Name</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex flex-column align-items-center">
+          <div class="d-flex flex-column align-items-center">
+            <img id="album-img" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/gold-music-mixtape-album-cover-a-design-template-a84a8218d568ac563d9e99f4356b90e5_screen.jpg?ts=1589012098" alt="Album Image">
+            <p id="likes" class="mb-0 mt-2"> 150 <button class="p-0 btn fas fa-heart"></button></p>
+            <a href="https://open.spotify.com/artist/7jefIIksOi1EazgRTfW2Pk?si=-sL-yWrqQFqQ0c_5LUXOnw&dl_branch=1">Artist Name</a>
+            <p class="text-muted">12 oct 2021</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-lg-start bg-dark text-muted bottom-0">
 
         <section class="d-flex justify-content-center p-4 border-bottom">
             <div class="me-5 d-lg-block align-self-center">
@@ -87,6 +112,13 @@
                 </div>
             </div>
         </section>
-    </footer>
+  </footer>
 </body>
 </html>
+
+<!-- <div>
+  input name , input comments
+  btn sumbit
+  comments
+</div>
+ -->s
