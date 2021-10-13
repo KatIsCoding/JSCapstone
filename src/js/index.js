@@ -64,10 +64,17 @@ window.onload = () => {
   const x = new Spotify()
   //x.getApiKey().then(f => console.log(f))
   //x.renewKey().then(console.log(x.apiKey))
-  x.get50Albums().then(albumsArr => {
-      albumsArr.forEach((album) => {
-        renderAlbum(album)
-      })
-      
-  })
+  const temp = []
+  
+    x.get50Albums().then(albumsArr => {
+        albumsArr.forEach((album) => {
+          if (!temp.includes(album.name)){
+            renderAlbum(album)
+            temp.push(album.name)
+          }
+        })
+
+    })
+  
+  
 };
