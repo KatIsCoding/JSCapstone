@@ -27,8 +27,8 @@ html {
   background-color: #181818;
 }
 
-#album-img {
-  width: 15rem;
+.fade {
+  transition-duration: 0.8s;
 }
 
 .info {

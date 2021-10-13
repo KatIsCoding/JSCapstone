@@ -27,6 +27,20 @@ const renderAlbum = (albumObj) => {
   const ctitle = document.createElement('h3');
   const cinfo = document.createElement('p');
   const cbtn = document.createElement('a');
+  cbtn.setAttribute('data-bs-toggle', 'modal');
+  cbtn.setAttribute('data-bs-target', '#modal-container');
+  cbtn.addEventListener('click', () => {
+    const albumName = document.querySelector('#album-name');
+    const albumPlayer = document.querySelector('#album-player');
+    const artistName = document.querySelector('#artist-name');
+    const releaseDate = document.querySelector('#release-date');
+
+    albumName.innerText = albumObj.name;
+    albumPlayer.setAttribute('src', `https://open.spotify.com/embed/album/${albumObj.id}`);
+    artistName.innerText = albumObj.artists[0].name;
+    artistName.setAttribute('href', albumObj.artists[0].external_urls.spotify);
+    releaseDate.innerText = albumObj.release_date;
+  });
   cbody.classList.add('card-body');
 
   ctitle.classList.add('card-title');
