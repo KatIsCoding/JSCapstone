@@ -1,4 +1,4 @@
-import { SPOTIFYKEY } from "./crypto.js";
+import { SPOTIFYKEY } from "./api.js";
 export class Spotify {
   constructor() {
     //this.renewKey()

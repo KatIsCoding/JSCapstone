@@ -1,7 +1,7 @@
 import '../style.css';
 /* import 'bootstrap'; */
 import { Spotify } from './spotifyAPI.js';
-import {SPOTIFYKEY, APIKEY} from "./crypto.js"
+import {SPOTIFYKEY, APIKEY} from "./api.js"
 const songsList = document.getElementById("songs-list")
 const renderAlbum = (albumObj) => {
   /*
