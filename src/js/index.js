@@ -6,6 +6,10 @@ import Spotify from './spotifyAPI.js';
 
 import { addComment, showComment } from './comments.js';
 
+import { getLikes, addLike } from './likesAPI.js';
+
+window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
+
 const displayInputComments = document.querySelector('#add-comments');
 displayInputComments.addEventListener('click', () => { addComment(); });
 
@@ -13,7 +17,11 @@ const displayComments = document.querySelector('#show-comments-btn');
 displayComments.addEventListener('click', () => { showComment(); });
 
 const songsList = document.getElementById('songs-list');
-const renderAlbum = (albumObj) => {
+
+const renderAlbum = (albumObj, likes) => {
+  const likeIcon = document.createElement("i")
+  likeIcon.classList.add("p-0", "fas", "fa-heart")  
+
   const album = document.createElement('div');
   album.id = albumObj.id;
   album.classList.add('card');
@@ -27,8 +35,52 @@ const renderAlbum = (albumObj) => {
   const ctitle = document.createElement('h3');
   const cinfo = document.createElement('p');
   const cbtn = document.createElement('a');
+  const likesbtn = document.createElement("button")
+  
+  let likescount = document.createElement("span")
+  
+  
+  likesbtn.classList.add("btn", "info", "mb-0", "mt-2", "likes")
+  
+  if (Object.keys(likes).includes(albumObj.id)){
+    likescount.innerText = likes[albumObj.id] + " "
+    
+  } else {
+    likescount.innerText = "0 "
+  }
+  
+  likesbtn.appendChild(likescount)
+  likesbtn.appendChild(likeIcon)
+
+
+  // Event Handler of adding a like
+  const addALikeEvent = () => {
+    likescount.innerText = (parseInt(likescount.innerText) + 1) + " "
+    addLike(albumObj.id) 
+    likesbtn.setAttribute("data-bs-toggle", "tooltip")
+    likesbtn.setAttribute("data-bs-placement", "top")
+    likesbtn.setAttribute("title", "You have liked this before!!")
+    new bootstrap.Tooltip(likesbtn)
+    likesbtn.removeEventListener("click", addALikeEvent)
+  }
+
+  //First initialization of adding a like handler
+  if (!JSON.parse(localStorage.getItem("liked")).includes(albumObj.id)){
+    likesbtn.addEventListener("click", addALikeEvent)
+  } else {
+    likesbtn.setAttribute("data-bs-toggle", "tooltip")
+    likesbtn.setAttribute("data-bs-placement", "top")
+    likesbtn.setAttribute("title", "You have liked this before!!")
+    new bootstrap.Tooltip(likesbtn)
+  }
+  
+  
+  cbody.appendChild(likesbtn)
+
+
   cbtn.setAttribute('data-bs-toggle', 'modal');
   cbtn.setAttribute('data-bs-target', '#modal-container');
+
   cbtn.addEventListener('click', () => {
     const albumName = document.querySelector('#album-name');
     const albumPlayer = document.querySelector('#album-player');
@@ -57,16 +109,28 @@ const renderAlbum = (albumObj) => {
   songsList.appendChild(album);
 };
 
-window.onload = () => {
-  const SpotifyObject = new Spotify();
-  const temp = [];
+window.onload = async () => {
 
+  
+  const SpotifyObject = new Spotify();
+  const temp = []
+  if (localStorage.getItem("liked") == null){
+    localStorage.setItem("liked", JSON.stringify([]))
+  }
+  const likes = await getLikes()
   SpotifyObject.get50Albums().then((albumsArr) => {
     albumsArr.forEach((album) => {
+      console.log(likes)
       if (!temp.includes(album.name)) {
-        renderAlbum(album);
+        renderAlbum(album, likes);
         temp.push(album.name);
       }
     });
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+console.log(tooltipList)
   });
+  
 };
