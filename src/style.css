@@ -12,6 +12,12 @@ html {
   background-color: #212529;
 }
 
+#songs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 #header-icon {
   width: 55px;
   height: 40px;
@@ -72,6 +78,28 @@ html {
 .btn-color-2 {
   background-color: #4b4ba5;
   color: white;
+}
+
+#songs-container h2 {
+  text-align: center;
+  color: white;
+  background-color: rgba(252, 27, 27, 0.774);
+  font-size: 1.5rem;
+}
+
+.songImg {
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+}
+
+.card {
+  width: 18rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
 }
 
 .fb {
