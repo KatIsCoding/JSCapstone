@@ -28,7 +28,7 @@ html {
 }
 
 .fade {
-  transition-duration: 0.8s;
+  transition-duration: 0.7s;
 }
 
 .info {
@@ -38,11 +38,11 @@ html {
   font-weight: 550;
 }
 
-#likes {
+.likes {
   color: #6c757d;
 }
 
-#likes:hover {
+.likes:hover {
   color: #dc3545;
 }
 
