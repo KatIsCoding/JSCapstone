@@ -10,10 +10,10 @@
     <title>Albumist</title>
 </head>
 <body>
-    <header>
+  <header>
         <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
             <div class="container-fluid">
-                <a class="navbar-brand ms-5" href="#"><img id="header-icon" src="https://media.discordapp.net/attachments/637141086334222369/897332773436657684/icon.png" alt=""> Albumist </a>
+                <a class="navbar-brand ms-md-5" href="#"><img id="header-icon" src="https://media.discordapp.net/attachments/637141086334222369/897332773436657684/icon.png" alt=""> Albumist </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -35,11 +35,73 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <section id="main-content">
-        
-    </section>
-    <footer class="text-center text-lg-start bg-dark text-muted bottom-0">
+  </header>
+  <main id="main-content">
+      <button type="button" class="btn btn-color" data-bs-toggle="modal" data-bs-target="#modal-container">
+        See details
+      </button>
+  </main>
+
+  <section class="modal fade" id="modal-container" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content bg-dark text-muted">
+        <div class="modal-header">
+          <h2 class="modal-title text-white">Album Name</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex flex-column align-items-center">
+          <div class="d-flex flex-column align-items-center">
+            <iframe src="https://open.spotify.com/embed/album/5B6XfyHHYawyLkEvNvhSPh" width="250" height="300" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+              <div class="d-flex">
+                <button id="add-comments" type="button" class="btn add-no-click info mb-0 mt-2 me-3"> 
+                  <span>
+                    <span>Add</span> <i class="p-0 fas fa-comment"></i>
+                  </span>
+                </button>
+                <button id="likes" type="button" class="btn info mb-0 mt-2"> 
+                  <span>
+                    150 <i class="p-0 fas fa-heart"></i>
+                  </span>
+                </button>
+              </div>
+            <a href="https://open.spotify.com/artist/7jefIIksOi1EazgRTfW2Pk?si=-sL-yWrqQFqQ0c_5LUXOnw&dl_branch=1">Artist Name</a>
+            <p class="text-muted">12 oct 2021</p>
+          </div>
+          <div id="add-comment" class="d-none">
+            <input class="mb-2 text-capitalize text-white inputs-user" type="text" name="name" id="name" placeholder="Your name" minlength="3" maxlength="12" required>
+            <textarea class="text-white inputs-user" id="area-comment" name="area-comment" placeholder="Enter your comment here" minlength="3" maxlength="500" required></textarea>
+          </div>
+          <div id="show-comments" class="d-none">
+            <p class="text-white text-end mt-2 mb-2">2 comments</p>
+            <ul>
+              <li>
+                <p>Name 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis explicabo nobis, id ea laudantium ad deleniti, velit recusandae necessitatibus, at animi quasi quo exercitationem ullam quae quam ipsum dolores delectus!</p>
+              </li>
+              <li>
+                <p>Name 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis explicabo nobis, id ea laudantium ad deleniti, velit recusandae necessitatibus, at animi quasi quo exercitationem ullam quae quam ipsum dolores delectus!</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-color d-none d-md-inline" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button id="show-comments-btn" type="button" class="btn btn-color-2" > 
+            <span id="show-word">Show</span>  
+            <span id="hide-word" class="d-none">Hide</span> 
+            <span class="d-none d-md-inline"> comments</span> 
+            <span class="d-inline d-md-none"> <i class="p-0 fas fa-comments"></i> </span> 
+          </button>
+          <button id="add-comment-btn" type="button" class="d-none btn btn-color-2" >
+            Add comment
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-lg-start bg-dark text-muted bottom-0">
 
         <section class="d-flex justify-content-center p-4 border-bottom">
             <div class="me-5 d-lg-block align-self-center">
@@ -87,6 +149,6 @@
                 </div>
             </div>
         </section>
-    </footer>
+  </footer>
 </body>
 </html>

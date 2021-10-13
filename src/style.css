@@ -21,6 +21,59 @@ html {
   background-color: #181818;
 }
 
+#album-img {
+  width: 15rem;
+}
+
+.info {
+  background-color: #181818;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 550;
+}
+
+#likes {
+  color: #6c757d;
+}
+
+#likes:hover {
+  color: #dc3545;
+}
+
+.add-no-click {
+  color: #6c757d;
+}
+
+.add-clicked,
+.add-no-click:hover {
+  color: #4b4ba5;
+}
+
+.inputs-user {
+  background: #2c3034;
+  border: none;
+  width: 100%;
+}
+
+.inputs-user::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.inputs-user::-ms-input-placeholder {
+  color: white;
+}
+
+.btn-color {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-color-2 {
+  background-color: #4b4ba5;
+  color: white;
+}
+
 .fb {
   background-color: var(--facebook-color);
 }
