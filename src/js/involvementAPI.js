@@ -19,3 +19,7 @@ export const postComment = (id, userName, userText) => {
   });
   return response;
 };
+
+export const getComments = () => {
+
+};
