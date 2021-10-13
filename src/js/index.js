@@ -22,7 +22,8 @@ const renderAlbum = (albumObj) => {
   ctitle.classList.add('card-title');
   ctitle.innerText = albumObj.name;
   cbody.appendChild(ctitle);
-  cinfo.innerHTML = `Autor: ${albumObj.artists[0].name}<br>Release: ${albumObj['release-date']}`;
+  console.log(albumObj)
+  cinfo.innerHTML = `Autor: ${albumObj.artists[0].name}<br>Release: ${albumObj['release_date']}<br>Type: ${albumObj["album_type"][0].toUpperCase() + albumObj["album_type"].slice(1)}`;
   cbody.appendChild(cinfo);
 
   cbtn.classList.add('btn', 'btn-danger');
