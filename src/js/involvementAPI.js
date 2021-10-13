@@ -20,6 +20,14 @@ export const postComment = (id, userName, userText) => {
   return response;
 };
 
-export const getComments = () => {
-
+export const getComments = (id) => {
+  const getCommentsURL = `${commentsURL}?item_id=${id}`;
+  const response = fetch(getCommentsURL, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  });
+  return response;
 };

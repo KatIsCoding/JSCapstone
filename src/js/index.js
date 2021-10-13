@@ -6,13 +6,10 @@ import Spotify from './spotifyAPI.js';
 
 import { addComment, showComment } from './comments.js';
 
-import { postComment } from './involvementAPI.js';
+import { postComment, getComments } from './involvementAPI.js';
 
 const displayInputComments = document.querySelector('#add-comments');
 displayInputComments.addEventListener('click', () => { addComment(); });
-
-const displayComments = document.querySelector('#show-comments-btn');
-displayComments.addEventListener('click', () => { showComment(); });
 
 const addNewComment = async (id) => {
   const userName = document.querySelector('#user-name');
@@ -23,6 +20,16 @@ const addNewComment = async (id) => {
   } catch (e) {
     throw new Error(`Error posting comment: ${e}`);
   }
+};
+
+const getArrComments = async (id) => {
+  let comments = [];
+  try {
+    comments = await getComments(id).json();
+  } catch (e) {
+    throw new Error(`Error getting comments: ${e}`);
+  }
+  console.log(comments);
 };
 
 const songsList = document.getElementById('songs-list');
@@ -48,6 +55,7 @@ const renderAlbum = (albumObj) => {
     const artistName = document.querySelector('#artist-name');
     const releaseDate = document.querySelector('#release-date');
     const addBtn = document.querySelector('#add-comment-btn');
+    const displayComments = document.querySelector('#show-comments-btn');
 
     albumName.innerText = albumObj.name;
     albumPlayer.setAttribute('src', `https://open.spotify.com/embed/album/${albumObj.id}`);
@@ -56,6 +64,10 @@ const renderAlbum = (albumObj) => {
     releaseDate.innerText = albumObj.release_date;
 
     addBtn.addEventListener('click', () => addNewComment(albumObj.id));
+    displayComments.addEventListener('click', () => {
+      getArrComments(albumObj.id);
+      showComment();
+    });
   });
   cbody.classList.add('card-body');
 
