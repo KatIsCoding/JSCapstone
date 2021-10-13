@@ -6,11 +6,24 @@ import Spotify from './spotifyAPI.js';
 
 import { addComment, showComment } from './comments.js';
 
+import { postComment } from './involvementAPI.js';
+
 const displayInputComments = document.querySelector('#add-comments');
 displayInputComments.addEventListener('click', () => { addComment(); });
 
 const displayComments = document.querySelector('#show-comments-btn');
 displayComments.addEventListener('click', () => { showComment(); });
+
+const addNewComment = async (id) => {
+  const userName = document.querySelector('#user-name');
+  const userText = document.querySelector('#user-comment');
+
+  try {
+    await postComment(id, userName.value, userText.value);
+  } catch (e) {
+    throw new Error(`Error posting comment: ${e}`);
+  }
+};
 
 const songsList = document.getElementById('songs-list');
 const renderAlbum = (albumObj) => {
@@ -27,6 +40,23 @@ const renderAlbum = (albumObj) => {
   const ctitle = document.createElement('h3');
   const cinfo = document.createElement('p');
   const cbtn = document.createElement('a');
+  cbtn.setAttribute('data-bs-toggle', 'modal');
+  cbtn.setAttribute('data-bs-target', '#modal-container');
+  cbtn.addEventListener('click', () => {
+    const albumName = document.querySelector('#album-name');
+    const albumPlayer = document.querySelector('#album-player');
+    const artistName = document.querySelector('#artist-name');
+    const releaseDate = document.querySelector('#release-date');
+    const addBtn = document.querySelector('#add-comment-btn');
+
+    albumName.innerText = albumObj.name;
+    albumPlayer.setAttribute('src', `https://open.spotify.com/embed/album/${albumObj.id}`);
+    artistName.innerText = albumObj.artists[0].name;
+    artistName.setAttribute('href', albumObj.artists[0].external_urls.spotify);
+    releaseDate.innerText = albumObj.release_date;
+
+    addBtn.addEventListener('click', () => addNewComment(albumObj.id));
+  });
   cbody.classList.add('card-body');
 
   ctitle.classList.add('card-title');
