@@ -25,11 +25,11 @@ const addNewComment = async (id) => {
 const getArrComments = async (id) => {
   let comments = [];
   try {
-    comments = await getComments(id).json();
+    comments = await getComments(id);
   } catch (e) {
     throw new Error(`Error getting comments: ${e}`);
   }
-  console.log(comments);
+  return comments;
 };
 
 const songsList = document.getElementById('songs-list');

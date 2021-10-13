@@ -20,14 +20,15 @@ export const postComment = (id, userName, userText) => {
   return response;
 };
 
-export const getComments = (id) => {
+export const getComments = async (id) => {
   const getCommentsURL = `${commentsURL}?item_id=${id}`;
-  const response = fetch(getCommentsURL, {
+  const response = await fetch(getCommentsURL, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   });
-  return response;
+  const comments = await response.json();
+  return comments;
 };
