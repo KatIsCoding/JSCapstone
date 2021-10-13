@@ -29,3 +29,16 @@ export const showComments = () => {
   const showWord = document.querySelector('#show-comments-btn');
   showWord.classList.toggle('d-none');
 };
+
+export const populateComments = (comments) => {
+  const commentList = document.querySelector('#comment-list');
+  commentList.innerText = '';
+  comments.forEach((child) => {
+    const addNewComment = document.createElement('li');
+    addNewComment.innerHTML = `<p>
+    ${child.creation_date} <br>
+    ${child.username}:  ${child.comment}
+    </p>`;
+    commentList.appendChild(addNewComment);
+  });
+};

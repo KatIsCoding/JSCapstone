@@ -4,7 +4,7 @@ import 'bootstrap';
 
 import Spotify from './spotifyAPI.js';
 
-import { addComment, showComments } from './comments.js';
+import { addComment, showComments, populateComments } from './comments.js';
 
 import { postComment, getComments } from './involvementAPI.js';
 
@@ -33,6 +33,7 @@ const getArrComments = async (id) => {
   } catch (e) {
     throw new Error(`Error getting comments: ${e}`);
   }
+  populateComments(comments);
 };
 
 const songsList = document.getElementById('songs-list');
