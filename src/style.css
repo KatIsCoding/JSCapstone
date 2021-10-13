@@ -28,7 +28,7 @@ html {
 .info {
   background-color: #181818;
   border-radius: 10px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 550;
 }
 
@@ -44,7 +44,8 @@ html {
   color: #6c757d;
 }
 
-.add-clicked, .add-no-click:hover {
+.add-clicked,
+.add-no-click:hover {
   color: #4b4ba5;
 }
 
@@ -73,8 +74,6 @@ html {
   color: white;
 }
 
-
-
 .fb {
   background-color: var(--facebook-color);
 }
@@ -94,4 +93,3 @@ html {
 .gh {
   background-color: var(--github-color);
 }
-
