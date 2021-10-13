@@ -4,17 +4,21 @@ import 'bootstrap';
 
 import Spotify from './spotifyAPI.js';
 
-import { addComment, showComment } from './comments.js';
+import { addComment, showComments } from './comments.js';
 
 import { postComment, getComments } from './involvementAPI.js';
 
 const displayInputComments = document.querySelector('#add-comments');
 displayInputComments.addEventListener('click', () => { addComment(); });
 
+const hideComments = document.querySelector('#hide-comments-btn');
+hideComments.addEventListener('click', () => {
+  showComments();
+});
+
 const addNewComment = async (id) => {
   const userName = document.querySelector('#user-name');
   const userText = document.querySelector('#user-comment');
-
   try {
     await postComment(id, userName.value, userText.value);
   } catch (e) {
@@ -29,7 +33,6 @@ const getArrComments = async (id) => {
   } catch (e) {
     throw new Error(`Error getting comments: ${e}`);
   }
-  return comments;
 };
 
 const songsList = document.getElementById('songs-list');
@@ -66,7 +69,7 @@ const renderAlbum = (albumObj) => {
     addBtn.addEventListener('click', () => addNewComment(albumObj.id));
     displayComments.addEventListener('click', () => {
       getArrComments(albumObj.id);
-      showComment();
+      showComments();
     });
   });
   cbody.classList.add('card-body');

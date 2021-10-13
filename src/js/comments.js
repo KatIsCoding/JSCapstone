@@ -21,15 +21,11 @@ export const addComment = () => {
   changeColorComments();
 };
 
-const showComments = () => {
+export const showComments = () => {
   const showComments = document.querySelector('#show-comments');
   showComments.classList.toggle('d-none');
-  const hideWord = document.querySelector('#hide-word');
+  const hideWord = document.querySelector('#hide-comments-btn');
   hideWord.classList.toggle('d-none');
-  const showWord = document.querySelector('#show-word');
+  const showWord = document.querySelector('#show-comments-btn');
   showWord.classList.toggle('d-none');
-};
-
-export const showComment = () => {
-  showComments();
 };
