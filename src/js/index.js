@@ -26,7 +26,7 @@ const renderAlbum = (albumObj) => {
   cbody.appendChild(cinfo);
 
   cbtn.classList.add('btn', 'btn-danger');
-  cbtn.innerText = 'Open for more info';
+  cbtn.innerText = 'Click for more info';
   album.appendChild(cbody);
   album.appendChild(cbtn);
 
