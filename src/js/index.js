@@ -38,6 +38,7 @@ addBtn.addEventListener('click', () => addNewComment());
 const songsList = document.getElementById('songs-list');
 
 const renderAlbum = (albumObj, likes) => {
+  document.getElementById('items-counter').innerText = `${parseInt(document.getElementById('items-counter').innerText, 10) + 1}`;
   const likeIcon = document.createElement('i');
   likeIcon.classList.add('p-0', 'fas', 'fa-heart');
 
