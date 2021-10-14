@@ -47,10 +47,12 @@ export const renderAlbum = (albumObj, likes) => {
   const cinfo = document.createElement('p');
   const cbtn = document.createElement('a');
   const likesbtn = document.createElement('button');
+  const btnLikes = document.querySelector('#likes-popup');
 
   const likescount = document.createElement('span');
+  likescount.classList.add('likes-count');
 
-  likesbtn.classList.add('btn', 'info', 'mb-0', 'mt-2', 'likes');
+  likesbtn.classList.add('btn', 'mb-0', 'mt-2', 'likes');
 
   if (Object.keys(likes).includes(albumObj.id)) {
     likescount.innerText = `${likes[albumObj.id]} `;
@@ -63,13 +65,16 @@ export const renderAlbum = (albumObj, likes) => {
 
   // Event Handler of adding a like
   const addALikeEvent = () => {
+    const countLikes = document.querySelector('#count-likes-popup');
     likescount.innerText = `${parseInt(likescount.innerText, 10) + 1} `;
     addLike(albumObj.id);
     likesbtn.setAttribute('data-bs-toggle', 'tooltip');
     likesbtn.setAttribute('data-bs-placement', 'top');
     likesbtn.setAttribute('title', 'You have liked this before!!');
     new bootstrap.Tooltip(likesbtn);
+    countLikes.innerText = likescount.innerText;
     likesbtn.removeEventListener('click', addALikeEvent);
+    btnLikes.removeEventListener('click', addALikeEvent);
   };
 
   // First initialization of adding a like handler
@@ -95,6 +100,7 @@ export const renderAlbum = (albumObj, likes) => {
     const artistName = document.querySelector('#artist-name');
     const releaseDate = document.querySelector('#release-date');
     const idAlbum = document.querySelector('.id-album');
+    const countLikes = document.querySelector('#count-likes-popup');
 
     albumName.innerText = albumObj.name;
     albumPlayer.setAttribute('src', `https://open.spotify.com/embed/album/${albumObj.id}`);
@@ -102,10 +108,17 @@ export const renderAlbum = (albumObj, likes) => {
     artistName.setAttribute('href', albumObj.artists[0].external_urls.spotify);
     releaseDate.innerText = albumObj.release_date;
     idAlbum.setAttribute('id', albumObj.id);
+    if (!localStorage.getItem('liked').includes(albumObj.id)) {
+      countLikes.innerText = 'Add';
+      btnLikes.addEventListener('click', addALikeEvent);
+    } else {
+      countLikes.innerText = likescount.innerText;
+    }
   });
   cbody.classList.add('card-body');
 
   ctitle.classList.add('card-title');
+  cbody.setAttribute('id', `card${albumObj.id}`);
   ctitle.innerText = albumObj.name;
   cbody.appendChild(ctitle);
   cinfo.innerHTML = `Autor: ${albumObj.artists[0].name}<br>Release: ${albumObj.release_date}<br>Type: ${albumObj.album_type[0].toUpperCase() + albumObj.album_type.slice(1)}`;

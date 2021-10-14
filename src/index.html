@@ -33,9 +33,6 @@
       <h2>Top <strong id="items-counter">0</strong> Albums</h2>
     </section>
     <section id="songs-list"></section>
-      <!-- <button type="button" class="btn btn-color" data-bs-toggle="modal" data-bs-target="#modal-container">
-        See details
-      </button> -->
   </main>
 
   <section class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-container" tabindex="-1" aria-hidden="true">
@@ -57,7 +54,7 @@
                 </button>
                 <button id="likes-popup" type="button" class="btn info mb-0 mt-2 likes"> 
                   <span>
-                    150 <i class="p-0 fas fa-heart"></i>
+                    <span id="count-likes-popup"></span><i class="p-0 fas fa-heart"></i>
                   </span>
                 </button>
               </div>
@@ -100,7 +97,7 @@
   <footer class="text-center text-lg-start bg-dark text-muted bottom-0">
 
         <section class="d-flex justify-content-center p-4 border-bottom">
-            <div class="me-5 d-lg-block align-self-center">
+            <div class="me-5 d-lg-block align-self-center d-none d-md-inline">
                 Get in touch with us in our socials!
             </div>
             
