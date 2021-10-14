@@ -1,3 +1,6 @@
+/* eslint-disable no-new */
+/* eslint-disable no-undef */
+
 import '../style.css';
 
 import 'bootstrap';
@@ -64,7 +67,7 @@ const renderAlbum = (albumObj, likes) => {
 
   // Event Handler of adding a like
   const addALikeEvent = () => {
-    likescount.innerText = `${parseInt(likescount.innerText) + 1} `;
+    likescount.innerText = `${parseInt(likescount.innerText, 10) + 1} `;
     addLike(albumObj.id);
     likesbtn.setAttribute('data-bs-toggle', 'tooltip');
     likesbtn.setAttribute('data-bs-placement', 'top');
@@ -128,14 +131,15 @@ window.onload = async () => {
   const likes = await getLikes();
   SpotifyObject.get50Albums().then((albumsArr) => {
     albumsArr.forEach((album) => {
-      console.log(likes);
       if (!temp.includes(album.name)) {
         renderAlbum(album, likes);
         temp.push(album.name);
       }
     });
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    const tooltipList = tooltipTriggerList.map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
-    console.log(tooltipList);
+    tooltipTriggerList.map((tooltipTriggerEl) => {
+      new bootstrap.Tooltip(tooltipTriggerEl);
+      return 0;
+    });
   });
 };

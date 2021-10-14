@@ -6,6 +6,7 @@ export const getLikes = async () => fetch(base).then((r) => r.json()).then((like
   const likesObj = {};
   likesArr.map((likeObj) => {
     likesObj[likeObj.item_id] = likeObj.likes;
+    return 0;
   });
   return likesObj;
 });
