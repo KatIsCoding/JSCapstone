@@ -67,7 +67,9 @@ export const getArrComments = async () => {
     comments = [{ comment: 'No comments yet', creation_date: '', username: 'Add your comment ' }];
   }
   populateComments(comments);
-  showComments();
+  if (document.querySelector('#hide-comments-btn').classList.contains('d-none')) {
+    showComments();
+  }
   counterComments();
 };
 
@@ -80,4 +82,5 @@ export const addNewComment = async () => {
     throw new Error(`Error posting comment: ${e}`);
   }
   clearInputComments();
+  getArrComments();
 };
