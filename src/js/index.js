@@ -14,6 +14,13 @@ displayInputComments.addEventListener('click', () => { addComment(); });
 const hideComments = document.querySelector('#hide-comments-btn');
 hideComments.addEventListener('click', () => showComments());
 
+const closeModal = document.querySelector('#close-modal');
+closeModal.addEventListener('click', () => {
+  if (!document.querySelector('#hide-comments-btn').classList.contains('d-none')) {
+    showComments();
+  }
+});
+
 const displayComments = document.querySelector('#show-comments-btn');
 displayComments.addEventListener('click', () => getArrComments());
 
