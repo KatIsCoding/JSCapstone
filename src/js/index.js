@@ -1,6 +1,6 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
-
+/* eslint-disable import/prefer-default-export */
 import '../style.css';
 
 import 'bootstrap';
@@ -17,20 +17,15 @@ window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 
 const displayInputComments = document.querySelector('#add-comments');
 
-
 const hideComments = document.querySelector('#hide-comments-btn');
-
 
 const closeModal = document.querySelector('#close-modal');
 
-
 const displayComments = document.querySelector('#show-comments-btn');
-
 
 const addBtn = document.querySelector('#add-comment-btn');
 
-
-//const songsList = document.getElementById('songs-list');
+// const songsList = document.getElementById('songs-list');
 
 export const renderAlbum = (albumObj, likes) => {
   const songsList = document.getElementById('songs-list');
@@ -78,7 +73,7 @@ export const renderAlbum = (albumObj, likes) => {
   };
 
   // First initialization of adding a like handler
-  if(localStorage.getItem("liked") !== null){
+  if (localStorage.getItem('liked') !== null) {
     if (!JSON.parse(localStorage.getItem('liked')).includes(albumObj.id)) {
       likesbtn.addEventListener('click', addALikeEvent);
     } else {
