@@ -7,9 +7,10 @@ import 'bootstrap';
 
 import Spotify from './spotifyAPI.js';
 
-import { addComment, showComment } from './comments.js';
+import {
+  addComment, showComments, getArrComments, addNewComment, clearInputComments,
+} from './comments.js';
 
-import { postComment } from './involvementAPI.js';
 import { getLikes, addLike } from './likesAPI.js';
 
 window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
@@ -17,19 +18,22 @@ window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 const displayInputComments = document.querySelector('#add-comments');
 displayInputComments.addEventListener('click', () => { addComment(); });
 
-const displayComments = document.querySelector('#show-comments-btn');
-displayComments.addEventListener('click', () => { showComment(); });
+const hideComments = document.querySelector('#hide-comments-btn');
+hideComments.addEventListener('click', () => showComments());
 
-const addNewComment = async (id) => {
-  const userName = document.querySelector('#user-name');
-  const userText = document.querySelector('#user-comment');
-
-  try {
-    await postComment(id, userName.value, userText.value);
-  } catch (e) {
-    throw new Error(`Error posting comment: ${e}`);
+const closeModal = document.querySelector('#close-modal');
+closeModal.addEventListener('click', () => {
+  clearInputComments();
+  if (!document.querySelector('#hide-comments-btn').classList.contains('d-none')) {
+    showComments();
   }
-};
+});
+
+const displayComments = document.querySelector('#show-comments-btn');
+displayComments.addEventListener('click', () => getArrComments());
+
+const addBtn = document.querySelector('#add-comment-btn');
+addBtn.addEventListener('click', () => addNewComment());
 
 const songsList = document.getElementById('songs-list');
 
@@ -96,15 +100,14 @@ const renderAlbum = (albumObj, likes) => {
     const albumPlayer = document.querySelector('#album-player');
     const artistName = document.querySelector('#artist-name');
     const releaseDate = document.querySelector('#release-date');
-    const addBtn = document.querySelector('#add-comment-btn');
+    const idAlbum = document.querySelector('.id-album');
 
     albumName.innerText = albumObj.name;
     albumPlayer.setAttribute('src', `https://open.spotify.com/embed/album/${albumObj.id}`);
     artistName.innerText = albumObj.artists[0].name;
     artistName.setAttribute('href', albumObj.artists[0].external_urls.spotify);
     releaseDate.innerText = albumObj.release_date;
-
-    addBtn.addEventListener('click', () => addNewComment(albumObj.id));
+    idAlbum.setAttribute('id', albumObj.id);
   });
   cbody.classList.add('card-body');
 

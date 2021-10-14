@@ -47,15 +47,16 @@
       </button> -->
   </main>
 
-  <section class="modal fade" id="modal-container" tabindex="-1" aria-hidden="true">
+  <section class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-container" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content bg-dark text-muted">
         <div class="modal-header">
           <h2 id="album-name" class="modal-title text-white"> </h2>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button id="close-modal" type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body d-flex flex-column align-items-center">
           <div class="d-flex flex-column align-items-center">
+            <div class="id-album"></div>
             <iframe id="album-player" width="250" height="300" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
               <div class="d-flex">
                 <button id="add-comments" type="button" class="btn add-no-click info mb-0 mt-2 me-3"> 
@@ -78,13 +79,7 @@
           </div>
           <div id="show-comments" class="d-none">
             <p class="text-white text-end mt-2 mb-2">2 comments</p>
-            <ul>
-              <li>
-                <p>Name 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis explicabo nobis, id ea laudantium ad deleniti, velit recusandae necessitatibus, at animi quasi quo exercitationem ullam quae quam ipsum dolores delectus!</p>
-              </li>
-              <li>
-                <p>Name 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis explicabo nobis, id ea laudantium ad deleniti, velit recusandae necessitatibus, at animi quasi quo exercitationem ullam quae quam ipsum dolores delectus!</p>
-              </li>
+            <ul id="comment-list">
             </ul>
           </div>
         </div>
@@ -94,7 +89,11 @@
           </button>
           <button id="show-comments-btn" type="button" class="btn btn-color-2" > 
             <span id="show-word">Show</span>  
-            <span id="hide-word" class="d-none">Hide</span> 
+            <span class="d-none d-md-inline">comments</span> 
+            <span class="d-inline d-md-none"> <i class="p-0 fas fa-comments"></i> </span> 
+          </button>
+          <button id="hide-comments-btn" type="button" class="btn btn-color-2 d-none" > 
+            <span id="hide-word">Hide</span> 
             <span class="d-none d-md-inline"> comments</span> 
             <span class="d-inline d-md-none"> <i class="p-0 fas fa-comments"></i> </span> 
           </button>

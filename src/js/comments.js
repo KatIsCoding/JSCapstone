@@ -1,3 +1,5 @@
+import { postComment, getComments } from './involvementAPI.js';
+
 const changeColorComments = () => {
   const displayInputComments = document.querySelector('#add-comments');
   if (displayInputComments.classList.contains('add-clicked')) {
@@ -21,15 +23,50 @@ export const addComment = () => {
   changeColorComments();
 };
 
-const showComments = () => {
+export const showComments = () => {
   const showComments = document.querySelector('#show-comments');
   showComments.classList.toggle('d-none');
-  const hideWord = document.querySelector('#hide-word');
+  const hideWord = document.querySelector('#hide-comments-btn');
   hideWord.classList.toggle('d-none');
-  const showWord = document.querySelector('#show-word');
+  const showWord = document.querySelector('#show-comments-btn');
   showWord.classList.toggle('d-none');
 };
 
-export const showComment = () => {
+const populateComments = (comments) => {
+  const commentList = document.querySelector('#comment-list');
+  commentList.innerText = '';
+  comments.forEach((child) => {
+    const addNewComment = document.createElement('li');
+    addNewComment.innerHTML = `<p>
+    ${child.username}:  ${child.comment} <br>
+    ${child.creation_date}
+    </p>`;
+    commentList.appendChild(addNewComment);
+  });
+};
+
+export const clearInputComments = () => {
+  document.querySelector('#user-name').value = '';
+  document.querySelector('#user-comment').value = '';
+};
+
+export const getArrComments = async () => {
+  let comments = [];
+  comments = await getComments(document.querySelector('.id-album').id);
+  if (!comments[0]) {
+    comments = [{ comment: 'No comments yet', creation_date: '', username: 'Add your comment ' }];
+  }
+  populateComments(comments);
   showComments();
+};
+
+export const addNewComment = async () => {
+  const userName = document.querySelector('#user-name');
+  const userText = document.querySelector('#user-comment');
+  try {
+    await postComment(document.querySelector('.id-album').id, userName.value, userText.value);
+  } catch (e) {
+    throw new Error(`Error posting comment: ${e}`);
+  }
+  clearInputComments();
 };
