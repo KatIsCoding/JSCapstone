@@ -38,8 +38,8 @@ const populateComments = (comments) => {
   comments.forEach((child) => {
     const addNewComment = document.createElement('li');
     addNewComment.innerHTML = `<p>
-    ${child.creation_date} <br>
-    ${child.username}:  ${child.comment}
+    ${child.username}:  ${child.comment} <br>
+    ${child.creation_date}
     </p>`;
     commentList.appendChild(addNewComment);
   });
@@ -47,10 +47,9 @@ const populateComments = (comments) => {
 
 export const getArrComments = async () => {
   let comments = [];
-  try {
-    comments = await getComments(document.querySelector('.id-album').id);
-  } catch (e) {
-    throw new Error(`Error getting comments: ${e}`);
+  comments = await getComments(document.querySelector('.id-album').id);
+  if (!comments[0]) {
+    comments = [{ comment: 'No comments yet', creation_date: '', username: 'Add your comment ' }];
   }
   populateComments(comments);
   showComments();
