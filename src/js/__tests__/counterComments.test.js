@@ -1,4 +1,4 @@
-import { populateCounter, countComments } from '../js/counterComments.js';
+import { populateCounter, countComments } from '../counterComments.js';
 
 describe('Testing Counter 2 items', () => {
   const modalMock = document.createElement('div');
