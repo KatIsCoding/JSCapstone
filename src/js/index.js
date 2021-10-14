@@ -143,6 +143,12 @@ window.onload = async () => {
       showComments();
     }
   });
+  document.getElementById('close-modal-btn').addEventListener('click', () => {
+    clearInputComments();
+    if (!document.querySelector('#hide-comments-btn').classList.contains('d-none')) {
+      showComments();
+    }
+  });
   const SpotifyObject = new Spotify();
   const temp = [];
   if (localStorage.getItem('liked') == null) {
