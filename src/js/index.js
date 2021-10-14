@@ -5,7 +5,7 @@ import 'bootstrap';
 import Spotify from './spotifyAPI.js';
 
 import {
-  addComment, showComments, getArrComments, addNewComment, clearInputComments
+  addComment, showComments, getArrComments, addNewComment, clearInputComments,
 } from './comments.js';
 
 const displayInputComments = document.querySelector('#add-comments');
