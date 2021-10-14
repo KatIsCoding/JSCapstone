@@ -12,6 +12,10 @@ html {
   background-color: #17182f;
 }
 
+footer {
+  position: relative;
+}
+
 canvas {
   display: block;
 }
