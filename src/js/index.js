@@ -5,7 +5,7 @@ import 'bootstrap';
 import Spotify from './spotifyAPI.js';
 
 import {
-  addComment, showComments, getArrComments, addNewComment,
+  addComment, showComments, getArrComments, addNewComment, clearInputComments
 } from './comments.js';
 
 const displayInputComments = document.querySelector('#add-comments');
@@ -16,6 +16,7 @@ hideComments.addEventListener('click', () => showComments());
 
 const closeModal = document.querySelector('#close-modal');
 closeModal.addEventListener('click', () => {
+  clearInputComments();
   if (!document.querySelector('#hide-comments-btn').classList.contains('d-none')) {
     showComments();
   }

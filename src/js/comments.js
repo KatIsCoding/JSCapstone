@@ -45,6 +45,11 @@ const populateComments = (comments) => {
   });
 };
 
+export const clearInputComments = () => {
+  document.querySelector('#user-name').value = '';
+  document.querySelector('#user-comment').value = '';
+};
+
 export const getArrComments = async () => {
   let comments = [];
   comments = await getComments(document.querySelector('.id-album').id);
@@ -63,4 +68,5 @@ export const addNewComment = async () => {
   } catch (e) {
     throw new Error(`Error posting comment: ${e}`);
   }
+  clearInputComments();
 };
