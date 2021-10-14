@@ -1,6 +1,6 @@
 /* eslint-disable no-new */
 /* eslint-disable no-undef */
-
+/* eslint-disable import/prefer-default-export */
 import '../style.css';
 
 import 'bootstrap';
@@ -16,28 +16,19 @@ import { getLikes, addLike } from './likesAPI.js';
 window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 
 const displayInputComments = document.querySelector('#add-comments');
-displayInputComments.addEventListener('click', () => { addComment(); });
 
 const hideComments = document.querySelector('#hide-comments-btn');
-hideComments.addEventListener('click', () => showComments());
 
 const closeModal = document.querySelector('#close-modal');
-closeModal.addEventListener('click', () => {
-  clearInputComments();
-  if (!document.querySelector('#hide-comments-btn').classList.contains('d-none')) {
-    showComments();
-  }
-});
 
 const displayComments = document.querySelector('#show-comments-btn');
-displayComments.addEventListener('click', () => getArrComments());
 
 const addBtn = document.querySelector('#add-comment-btn');
-addBtn.addEventListener('click', () => addNewComment());
 
-const songsList = document.getElementById('songs-list');
+// const songsList = document.getElementById('songs-list');
 
-const renderAlbum = (albumObj, likes) => {
+export const renderAlbum = (albumObj, likes) => {
+  const songsList = document.getElementById('songs-list');
   document.getElementById('items-counter').innerText = `${parseInt(document.getElementById('items-counter').innerText, 10) + 1}`;
   const likeIcon = document.createElement('i');
   likeIcon.classList.add('p-0', 'fas', 'fa-heart');
@@ -82,13 +73,15 @@ const renderAlbum = (albumObj, likes) => {
   };
 
   // First initialization of adding a like handler
-  if (!JSON.parse(localStorage.getItem('liked')).includes(albumObj.id)) {
-    likesbtn.addEventListener('click', addALikeEvent);
-  } else {
-    likesbtn.setAttribute('data-bs-toggle', 'tooltip');
-    likesbtn.setAttribute('data-bs-placement', 'top');
-    likesbtn.setAttribute('title', 'You have liked this before!!');
-    new bootstrap.Tooltip(likesbtn);
+  if (localStorage.getItem('liked') !== null) {
+    if (!JSON.parse(localStorage.getItem('liked')).includes(albumObj.id)) {
+      likesbtn.addEventListener('click', addALikeEvent);
+    } else {
+      likesbtn.setAttribute('data-bs-toggle', 'tooltip');
+      likesbtn.setAttribute('data-bs-placement', 'top');
+      likesbtn.setAttribute('title', 'You have liked this before!!');
+      new bootstrap.Tooltip(likesbtn);
+    }
   }
 
   cbody.appendChild(likesbtn);
@@ -127,6 +120,16 @@ const renderAlbum = (albumObj, likes) => {
 };
 
 window.onload = async () => {
+  displayComments.addEventListener('click', () => getArrComments());
+  displayInputComments.addEventListener('click', () => { addComment(); });
+  addBtn.addEventListener('click', () => addNewComment());
+  hideComments.addEventListener('click', () => showComments());
+  closeModal.addEventListener('click', () => {
+    clearInputComments();
+    if (!document.querySelector('#hide-comments-btn').classList.contains('d-none')) {
+      showComments();
+    }
+  });
   const SpotifyObject = new Spotify();
   const temp = [];
   if (localStorage.getItem('liked') == null) {
