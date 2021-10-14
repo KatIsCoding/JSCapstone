@@ -1,3 +1,5 @@
+import { postComment, getComments } from './involvementAPI.js';
+
 const changeColorComments = () => {
   const displayInputComments = document.querySelector('#add-comments');
   if (displayInputComments.classList.contains('add-clicked')) {
@@ -30,7 +32,7 @@ export const showComments = () => {
   showWord.classList.toggle('d-none');
 };
 
-export const populateComments = (comments) => {
+const populateComments = (comments) => {
   const commentList = document.querySelector('#comment-list');
   commentList.innerText = '';
   comments.forEach((child) => {
@@ -41,4 +43,25 @@ export const populateComments = (comments) => {
     </p>`;
     commentList.appendChild(addNewComment);
   });
+};
+
+export const getArrComments = async () => {
+  let comments = [];
+  try {
+    comments = await getComments(document.querySelector('.id-album').id);
+  } catch (e) {
+    throw new Error(`Error getting comments: ${e}`);
+  }
+  populateComments(comments);
+  showComments();
+};
+
+export const addNewComment = async () => {
+  const userName = document.querySelector('#user-name');
+  const userText = document.querySelector('#user-comment');
+  try {
+    await postComment(document.querySelector('.id-album').id, userName.value, userText.value);
+  } catch (e) {
+    throw new Error(`Error posting comment: ${e}`);
+  }
 };
