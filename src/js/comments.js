@@ -1,5 +1,7 @@
 import { postComment, getComments } from './involvementAPI.js';
 
+import counterComments from './counterComments.js';
+
 const changeColorComments = () => {
   const displayInputComments = document.querySelector('#add-comments');
   if (displayInputComments.classList.contains('add-clicked')) {
@@ -66,6 +68,7 @@ export const getArrComments = async () => {
   }
   populateComments(comments);
   showComments();
+  counterComments();
 };
 
 export const addNewComment = async () => {
