@@ -35,14 +35,22 @@ export const showComments = () => {
 const populateComments = (comments) => {
   const commentList = document.querySelector('#comment-list');
   commentList.innerText = '';
-  comments.forEach((child) => {
-    const addNewComment = document.createElement('li');
-    addNewComment.innerHTML = `<p>
-    ${child.username}:  ${child.comment} <br>
-    ${child.creation_date}
-    </p>`;
-    commentList.appendChild(addNewComment);
-  });
+  if (comments[0].creation_date === '' && comments[0].comment === 'No comments yet') {
+    comments.forEach((child) => {
+      const addNewComment = document.createElement('li');
+      addNewComment.innerHTML = `<p>${child.username}:  ${child.comment}</p>`;
+      commentList.appendChild(addNewComment);
+    });
+  } else {
+    comments.forEach((child) => {
+      const addNewComment = document.createElement('li');
+      addNewComment.innerHTML = `<p>
+      ${child.username}:  ${child.comment} <br>
+      <span class="valid-comments">${child.creation_date}<span>
+      </p>`;
+      commentList.appendChild(addNewComment);
+    });
+  }
 };
 
 export const clearInputComments = () => {
