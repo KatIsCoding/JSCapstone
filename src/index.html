@@ -10,6 +10,7 @@
     <title>Albumist</title>
 </head>
 <body>
+  <div id="particles-js"></div>
   <header>
         <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
             <div class="container-fluid">
@@ -26,11 +27,14 @@
                 </div>
             </div>
         </nav>
+        <div id="songs-container">
+          <h2>Top <strong id="items-counter">0</strong> Albums</h2>
+        </div>
   </header>
-
+  
   <main id="main-content">
-    <section id="songs-container">
-      <h2>Top <strong id="items-counter">0</strong> Albums</h2>
+    <section>
+      
     </section>
     <section id="songs-list"></section>
   </main>
@@ -143,5 +147,6 @@
             </div>
         </section>
   </footer>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
 </html>

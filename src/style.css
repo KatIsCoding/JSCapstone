@@ -9,7 +9,30 @@
 body,
 html {
   margin: 0;
-  background-color: #212529;
+  background-color: #17182f;
+}
+
+footer {
+  position: relative;
+}
+
+canvas {
+  display: block;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+  background-color: #17182f;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  /* background-size: cover; background-position: 50% 50% ;background-repeat: no-repeat; */
 }
 
 #songs-list {
@@ -78,6 +101,11 @@ html {
 .btn-color-2 {
   background-color: #4b4ba5;
   color: white;
+}
+
+#songs-container {
+  position: absolute;
+  width: 100%;
 }
 
 #songs-container h2 {
