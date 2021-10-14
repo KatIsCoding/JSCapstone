@@ -50,7 +50,7 @@ export const renderAlbum = (albumObj, likes) => {
 
   const likescount = document.createElement('span');
 
-  likesbtn.classList.add('btn', 'info', 'mb-0', 'mt-2', 'likes');
+  likesbtn.classList.add('btn', 'mb-0', 'mt-2', 'likes');
 
   if (Object.keys(likes).includes(albumObj.id)) {
     likescount.innerText = `${likes[albumObj.id]} `;
