@@ -33,11 +33,10 @@
         <div id="songs-container">
           <h2 class="andaba-font fw-bold"> <span class="text-white">Top</span> <strong id="items-counter">0</strong> <span class="text-white">Albums</span></h2>
         </div>
-  </header
-  
+  </header>
+
   <main id="main-content">
     <section>
-      
     </section>
     <section id="songs-list"></section>
   </main>
@@ -46,7 +45,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content bg-dark text-muted">
         <div class="modal-header">
-          <h2 id="album-name" class="modal-title text-white"> </h2>
+          <h2 id="album-name" class="modal-title text-white andaba-font fw-bold"> </h2>
           <button id="close-modal" type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body d-flex flex-column align-items-center">
@@ -56,44 +55,44 @@
               <div class="d-flex">
                 <button id="add-comments" type="button" class="btn add-no-click info mb-0 mt-2 me-3"> 
                   <span>
-                    <span>Add</span> <i class="p-0 fas fa-comment"></i>
+                    <span class="robotoCon-font fw-bold">Add</span> <i class="p-0 fas fa-comment"></i>
                   </span>
                 </button>
                 <button id="likes-popup" type="button" class="btn info mb-0 mt-2 likes"> 
                   <span>
-                    <span id="count-likes-popup"></span><i class="p-0 fas fa-heart"></i>
+                    <span id="count-likes-popup" class="robotoCon-font fw-bold"></span><i class="p-0 fas fa-heart"></i>
                   </span>
                 </button>
               </div>
-            <a id="artist-name"> </a>
-            <p id="release-date" class="text-muted"> </p>
+            <a id="artist-name" class="robotoCon-font"> </a>
+            <p id="release-date" class="text-muted robotoCon-font"> </p>
           </div>
           <div id="add-comment" class="d-none">
             <input id="user-name" class="mb-2 text-capitalize text-white inputs-user" type="text" name="name" placeholder="Your name" minlength="3" maxlength="25" required>
             <textarea id="user-comment" class="text-white inputs-user" name="area-comment" placeholder="Enter your comment here" minlength="3" maxlength="500" required></textarea>
           </div>
           <div id="show-comments" class="d-none">
-            <p id="cont-comments" class="text-white text-end mt-2 mb-2"></p>
-            <ul id="comment-list">
+            <p id="cont-comments" class="text-white text-end mt-2 mb-2 robotoCon-font"></p>
+            <ul id="comment-list" class="robotoCon-font">
             </ul>
           </div>
         </div>
         <div class="modal-footer">
           <button id="close-modal-btn" type="button" class="btn btn-color d-none d-md-inline" data-bs-dismiss="modal">
-            Close
+            <span class="andaba-font fw-bold">Close</span>
           </button>
           <button id="show-comments-btn" type="button" class="btn btn-color-2" > 
-            <span id="show-word">Show</span>  
-            <span class="d-none d-md-inline">comments</span> 
+            <span id="show-word" class="andaba-font fw-bold">Show</span>  
+            <span class="d-none d-md-inline"> <span class="andaba-font fw-bold">comments</span></span> 
             <span class="d-inline d-md-none"> <i class="p-0 fas fa-comments"></i> </span> 
           </button>
           <button id="hide-comments-btn" type="button" class="btn btn-color-2 d-none" > 
-            <span id="hide-word">Hide</span> 
-            <span class="d-none d-md-inline"> comments</span> 
+            <span id="hide-word" class="andaba-font fw-bold">Hide</span> 
+            <span class="d-none d-md-inline"> <span class="andaba-font fw-bold">comments</span></span> 
             <span class="d-inline d-md-none"> <i class="p-0 fas fa-comments"></i> </span> 
           </button>
-          <button id="add-comment-btn" type="button" class="d-none btn btn-color-2" >
-            Add comment
+          <button id="add-comment-btn" type="button" class="d-none btn btn-color-2">
+             <span class="andaba-font fw-bold">Add comment</span>
           </button>
         </div>
       </div>
@@ -105,12 +104,12 @@
 
         <section class="d-flex justify-content-center p-4 border-bottom">
             <div class="me-5 d-lg-block align-self-center d-none d-md-inline">
-                Get in touch with us in our socials!
+                <span class="roboto-font">Get in touch with us in our socials!</span>
             </div>
             
 
             <div class="m3-4"> 
-                Fabrizio:
+                <span class="roboto-font">Fabrizio:</span> 
                 <div>
                       <a class="btn btn-primary btn-floating m-1 tw" href="https://twitter.com/fabriziogr211" role="button">
                         <i class="fab fa-twitter"></i>
@@ -122,7 +121,7 @@
                         <i class="fab fa-github"></i>
                       </a>
                 </div>
-                Miki:
+                <span class="roboto-font">Miki:</span> 
                 <div class="mb-4">
                       <a class="btn btn-primary btn-floating m-1 tw" href="https://twitter.com/MiguelP2611" role="button">
                         <i class="fab fa-twitter"></i>
