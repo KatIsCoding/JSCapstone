@@ -34,6 +34,7 @@ To get a local copy up and running follow these simple example steps.
 - WebBrowser
 - NPM
 - NodeJS
+
 ### Setup
 
 - First, `git clone https://github.com/KatIsCoding/JSCapstone.git`
@@ -53,19 +54,23 @@ To get a local copy up and running follow these simple example steps.
 
 - Copy the files to your domain provider or fork this repo and deploy it using Github Pages
 
+## Video
+
+Click [here](./zoom_0.mp4) to see a quick presentation of the profect 
+
 ## Authors
 
 👤 **Fabrizio Gomez**
 
-- GitHub: [@githubhand  le](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@KatIsCoding](https://github.com/KatIsCoding)
+- Twitter: [@Fabrizio](https://twitter.com/fabriziogr211)
+- LinkedIn: [Fabrizio](https://www.linkedin.com/in/fabrizio-gomez-6a00801a3/)
 
-👤 **Author2**
+👤 **Miguel Puentes**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@mike](https://github.com/mike2611)
+- Twitter: [@Miguel](https://twitter.com/MiguelP2611)
+- LinkedIn: [Miguel](https://github.com/mike2611)
 
 ## 🤝 Contributing
 
@@ -79,9 +84,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- The information about the songs and embeded player is provided by the Spotify API
+- The service to load user input is Involvement API
 
 ## 📝 License
 
