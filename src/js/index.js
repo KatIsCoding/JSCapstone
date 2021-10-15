@@ -121,7 +121,7 @@ export const renderAlbum = (albumObj, likes) => {
   cbody.setAttribute('id', `card${albumObj.id}`);
   ctitle.innerText = albumObj.name;
   cbody.appendChild(ctitle);
-  cinfo.innerHTML = `Autor: ${albumObj.artists[0].name}<br>Release: ${albumObj.release_date}<br>Type: ${albumObj.album_type[0].toUpperCase() + albumObj.album_type.slice(1)}`;
+  cinfo.innerHTML = `Author: ${albumObj.artists[0].name}<br>Release: ${albumObj.release_date}<br>Type: ${albumObj.album_type[0].toUpperCase() + albumObj.album_type.slice(1)}`;
   cbody.appendChild(cinfo);
 
   cbtn.classList.add('btn', 'btn-danger');
