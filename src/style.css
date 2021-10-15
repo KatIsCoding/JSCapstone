@@ -12,8 +12,13 @@ html {
   background-color: #17182f;
 }
 
+.navbar {
+  background-color: #212529ab;
+}
+
 footer {
   position: relative;
+  background-color: #212529ab;
 }
 
 canvas {
@@ -110,8 +115,8 @@ header {
 
 #songs-container h2 {
   text-align: center;
-  color: white;
-  background-color: rgba(252, 27, 27, 0.774);
+  color: #dc3545;
+  background-color: transparent;
   font-size: 1.5rem;
 }
 
