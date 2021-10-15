@@ -1,4 +1,4 @@
-import { renderAlbum } from '../index.js';
+import renderAlbum from '../index.js';
 import LocalStorage from '../__mocks__/LocalStorage.js';
 
 global.localStorage = new LocalStorage();

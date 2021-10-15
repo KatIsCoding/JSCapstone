@@ -1,8 +1,9 @@
-/* eslint-disable import/prefer-default-export */
-// default export rule is disabled only for testing purposes since it is the only case we require the function @renderAlbum
+/* eslint-disable no-new */
+// It is impossible to make use of
+// the Tooltip from Bootstrap without instanciating a new one for every card
 import '../style.css';
 
-import 'bootstrap';
+import { Tooltip } from 'bootstrap/dist/js/bootstrap.bundle.js';
 
 import Spotify from './spotifyAPI.js';
 
@@ -11,6 +12,8 @@ import {
 } from './comments.js';
 
 import { getLikes, addLike } from './likesAPI.js';
+
+const { particlesJS } = window;
 
 window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
 
@@ -24,8 +27,7 @@ const displayComments = document.querySelector('#show-comments-btn');
 
 const addBtn = document.querySelector('#add-comment-btn');
 
-
-export const renderAlbum = (albumObj, likes) => {
+const renderAlbum = (albumObj, likes) => {
   const songsList = document.getElementById('songs-list');
   document.getElementById('items-counter').innerText = `${parseInt(document.getElementById('items-counter').innerText, 10) + 1}`;
   const likeIcon = document.createElement('i');
@@ -69,7 +71,7 @@ export const renderAlbum = (albumObj, likes) => {
     likesbtn.setAttribute('data-bs-toggle', 'tooltip');
     likesbtn.setAttribute('data-bs-placement', 'top');
     likesbtn.setAttribute('title', 'You have liked this before!!');
-    new bootstrap.Tooltip(likesbtn);
+    new Tooltip(likesbtn);
     countLikes.innerText = likescount.innerText;
     likesbtn.removeEventListener('click', addALikeEvent);
     btnLikes.removeEventListener('click', addALikeEvent);
@@ -83,7 +85,7 @@ export const renderAlbum = (albumObj, likes) => {
       likesbtn.setAttribute('data-bs-toggle', 'tooltip');
       likesbtn.setAttribute('data-bs-placement', 'top');
       likesbtn.setAttribute('title', 'You have liked this before!!');
-      new bootstrap.Tooltip(likesbtn);
+      new Tooltip(likesbtn);
     }
   }
 
@@ -162,7 +164,7 @@ window.onload = async () => {
     });
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.map((tooltipTriggerEl) => {
-      new bootstrap.Tooltip(tooltipTriggerEl);
+      new Tooltip(tooltipTriggerEl);
       return 0;
     });
   });
@@ -278,3 +280,5 @@ window.onload = async () => {
     retina_detect: true,
   });
 };
+
+export default renderAlbum;
