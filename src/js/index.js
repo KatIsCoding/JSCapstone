@@ -155,7 +155,7 @@ window.onload = async () => {
     localStorage.setItem('liked', JSON.stringify([]));
   }
   const likes = await getLikes();
-  const albumsArr = await SpotifyObject.get50Albums()
+  const albumsArr = await SpotifyObject.get50Albums();
   albumsArr.forEach((album) => {
     if (!temp.includes(album.name)) {
       renderAlbum(album, likes);
