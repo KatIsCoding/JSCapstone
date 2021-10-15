@@ -155,13 +155,12 @@ window.onload = async () => {
     localStorage.setItem('liked', JSON.stringify([]));
   }
   const likes = await getLikes();
-  SpotifyObject.get50Albums().then((albumsArr) => {
-    albumsArr.forEach((album) => {
-      if (!temp.includes(album.name)) {
-        renderAlbum(album, likes);
-        temp.push(album.name);
-      }
-    });
+  const albumsArr = await SpotifyObject.get50Albums();
+  albumsArr.forEach((album) => {
+    if (!temp.includes(album.name)) {
+      renderAlbum(album, likes);
+      temp.push(album.name);
+    }
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.map((tooltipTriggerEl) => {
       new Tooltip(tooltipTriggerEl);
