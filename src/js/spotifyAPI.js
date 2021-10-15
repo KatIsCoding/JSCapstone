@@ -17,13 +17,12 @@ export default class Spotify {
         localStorage.setItem('lastKey', api.access_token);
         localStorage.setItem('lastKeyTime', Date.now());
         return 0;
-        // console.log("Api Key Renewed!!", localStorage.lastKey)
       });
     }
     return 0;
   }
 
-  getApiKey = () => fetch('https://accounts.spotify.com/api/token', {
+  getApiKey = async () => fetch('https://accounts.spotify.com/api/token', {
     method: 'POST',
     headers: {
       Authorization: `Basic ${SPOTIFYKEY}`,
@@ -31,18 +30,6 @@ export default class Spotify {
     },
     body: 'grant_type=client_credentials',
   }).then((r) => r.json()).then((d) => d)
-
-  getAlbum = async (albumID) => {
-    await this.renewKey();
-
-    return fetch(`https://api.spotify.com/v1/albums/${albumID}`, {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('lastKey')}`,
-      },
-    }).then((r) => r.json()).then((d) => d);
-  }
 
   get50Albums = async () => {
     // Since a promise is being returned properly, I can await the fullfillment of the promise

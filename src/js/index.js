@@ -1,6 +1,5 @@
-/* eslint-disable no-new */
-/* eslint-disable no-undef */
 /* eslint-disable import/prefer-default-export */
+// default export rule is disabled only for testing purposes since it is the only case we require the function @renderAlbum
 import '../style.css';
 
 import 'bootstrap';
@@ -25,7 +24,6 @@ const displayComments = document.querySelector('#show-comments-btn');
 
 const addBtn = document.querySelector('#add-comment-btn');
 
-// const songsList = document.getElementById('songs-list');
 
 export const renderAlbum = (albumObj, likes) => {
   const songsList = document.getElementById('songs-list');
