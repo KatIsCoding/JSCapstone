@@ -56,7 +56,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Video
 
-Click [here](./zoom_0.mp4) to see a quick presentation of the profect 
+Click [here](https://drive.google.com/file/d/1SOs7hWbhgy5Rq02QESDiYlXrop0taHwh/view?usp=sharing) to see a quick presentation of the profect 
 
 ## Authors
 
