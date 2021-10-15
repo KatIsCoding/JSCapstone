@@ -16,6 +16,14 @@ html {
   background-color: #212529ab;
 }
 
+.navbar .navbar-brand  {
+  font-size: 1.5rem;
+}
+
+.navbar .nav-link {
+  font-size: 1.2rem;
+}
+
 footer {
   position: relative;
   background-color: #212529ab;
@@ -117,7 +125,7 @@ header {
   text-align: center;
   color: #dc3545;
   background-color: transparent;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .songImg {
@@ -133,6 +141,18 @@ header {
   text-align: center;
   padding: 10px;
   margin: 20px;
+}
+
+.andaba-font {
+  font-family: 'Andada Pro', serif;
+}
+
+.roboto-font {
+  font-family: 'Roboto', sans-serif;
+}
+
+.robotoCon-font {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .fb {

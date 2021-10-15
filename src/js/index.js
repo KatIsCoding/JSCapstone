@@ -115,16 +115,16 @@ const renderAlbum = (albumObj, likes) => {
       countLikes.innerText = likescount.innerText;
     }
   });
-  cbody.classList.add('card-body');
+  cbody.classList.add('card-body', 'robotoCon-font');
 
-  ctitle.classList.add('card-title');
+  ctitle.classList.add('card-title', 'andaba-font', 'fw-bold');
   cbody.setAttribute('id', `card${albumObj.id}`);
   ctitle.innerText = albumObj.name;
   cbody.appendChild(ctitle);
   cinfo.innerHTML = `Author: ${albumObj.artists[0].name}<br>Release: ${albumObj.release_date}<br>Type: ${albumObj.album_type[0].toUpperCase() + albumObj.album_type.slice(1)}`;
   cbody.appendChild(cinfo);
 
-  cbtn.classList.add('btn', 'btn-danger');
+  cbtn.classList.add('btn', 'btn-danger', 'andaba-font', 'fw-bold');
   cbtn.innerText = 'Click for more info';
   album.appendChild(cbody);
   album.appendChild(cbtn);
