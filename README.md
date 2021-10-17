@@ -70,7 +70,7 @@ Click [here](https://drive.google.com/file/d/1SOs7hWbhgy5Rq02QESDiYlXrop0taHwh/v
 
 - GitHub: [@mike](https://github.com/mike2611)
 - Twitter: [@Miguel](https://twitter.com/MiguelP2611)
-- LinkedIn: [Miguel](https://github.com/mike2611)
+- LinkedIn: [Miguel](https://www.linkedin.com/in/miguel-puentes-mata-90a562139)
 
 ## 🤝 Contributing
 
